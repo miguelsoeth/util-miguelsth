@@ -13,7 +13,7 @@ export class DrawGraphSequenceComponent implements OnInit {
   header = inject(HeaderService);
 
   ngOnInit(): void {
-    this.header.setTitle("Desenhar grafo apartir de sequência de grau");
+    this.header.setTitle("Desenhar grafo a partir de sequência de grau");
   }
 
   @ViewChild('graphCanvas', { static: true }) canvasRef!: ElementRef<HTMLCanvasElement>;
