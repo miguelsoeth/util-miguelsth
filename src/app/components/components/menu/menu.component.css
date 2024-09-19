@@ -1,0 +1,32 @@
+.menu {
+    padding: 0px 50px;
+    min-height: calc(100dvh - 170px);
+}
+
+.group {
+    background-color: white;
+    display: flex;
+    border: 2px solid gray;
+    padding: 10px;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.group-text {
+    width: 90%;
+}
+
+.group-button {
+    font-family: 'Short Stack', cursive;
+    font-weight: 700;
+    font-size: 1.3rem;
+    width: 10%;
+    height: 50px;
+    border-radius: 10px;
+    background-image: url(../../../../assets/images/paper-bkg.jpeg);
+    background-size: cover;
+}
+
+.group-button:hover {
+    text-decoration: underline;
+}

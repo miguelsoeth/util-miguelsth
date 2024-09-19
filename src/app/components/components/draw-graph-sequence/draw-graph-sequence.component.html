@@ -1,0 +1,7 @@
+<div class="bkg">
+    <div class="input-group">
+        <input type="text" [(ngModel)]="degreeSequence" placeholder="Digite a sequência. Ex: 3,2,1,1,1">
+        <button class="btn" (click)="drawGraph()">Desenhar</button>
+    </div>
+    <canvas #graphCanvas width="600" height="600"></canvas>
+</div>

@@ -1,0 +1,21 @@
+.bkg {
+    background-image: url("../../../../assets/images/chalkboard-bkg-footer.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;    
+    padding: 0px 30px;
+    height: 60px;
+    margin-top: 25px;
+}
+
+#portifolio-button {
+    text-decoration: none;  
+    color: inherit;
+}
+
+#portifolio-button:hover {
+    text-decoration: underline;
+}

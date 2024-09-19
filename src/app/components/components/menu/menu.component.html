@@ -1,0 +1,10 @@
+<div class="menu">
+    <div *ngFor="let item of menuItems" class="group">
+        <div class="group-text">
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.description }}</p>
+        </div>
+        <button class="group-button" (click)="navigateTo(item)">Usar</button>
+    </div>
+</div>
+  
