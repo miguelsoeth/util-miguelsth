@@ -1,5 +1,5 @@
 .menu {
-    padding: 0px 50px;
+    padding: 0px 50px;    
     min-height: calc(100dvh - 170px);
 }
 
@@ -27,6 +27,6 @@
     background-size: cover;
 }
 
-.group-button:hover {
+.group-text:hover h2 {
     text-decoration: underline;
 }

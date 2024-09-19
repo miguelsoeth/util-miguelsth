@@ -3,5 +3,51 @@
         <input type="text" [(ngModel)]="degreeSequence" placeholder="Digite a sequência. Ex: 3,2,1,1,1">
         <button class="btn" (click)="drawGraph()">Desenhar</button>
     </div>
-    <canvas #graphCanvas width="600" height="600"></canvas>
+    <canvas #graphCanvas></canvas>
+    <div class="description">
+        <h1>Princípio de Havel-Hakimi</h1>
+    
+    <p>
+        O algoritmo de Havel-Hakimi é utilizado para determinar se uma sequência de graus pode formar um grafo simples. 
+        A sequência de graus representa a quantidade de arestas que cada vértice de um grafo deve ter. O algoritmo opera da seguinte forma:
+    </p>
+
+    <ol>
+        <li>Ordene a sequência de graus de forma decrescente.</li>
+        <li>Retire o primeiro elemento <code><b>X</b></code> da sequência (o maior valor).</li>
+        <li>Subtraia 1 dos próximos <code><b>X</b></code> elementos da sequência (ou seja, conecte o vértice com os próximos vértices de maior grau).</li>
+        <li>Repita o processo até que todos os elementos sejam 0 ou se identifique uma contradição (quando não houver vértices suficientes para conectar).</li>
+    </ol>
+
+    <p>
+        Se a sequência se reduzir a todos zeros, a sequência de graus é válida e um grafo pode ser construído a partir dela.
+    </p>
+
+    <h2>Exemplo: Sequência de Grau [4, 3, 3, 3, 1]</h2>
+    <p>A sequência de grau <code>[4, 3, 3, 3, 1]</code> descreve um grafo com 5 vértices e as seguintes conexões:</p>
+
+    <div class="graph-container">
+        <div class="node">V1 (grau 4)</div>
+        <div class="node">V2 (grau 3)</div>
+        <div class="node">V3 (grau 3)</div>
+        <div class="node">V4 (grau 3)</div>
+        <div class="node">V5 (grau 1)</div>
+
+        <div class="edge">
+            V1 se conecta a V2, V3, V4, V5
+        </div>
+        <div class="edge">
+            V2 se conecta a V3, V4
+        </div>
+        <div class="edge">
+            V3 se conecta a V4
+        </div>        
+    </div>
+
+    <p>O grafo resultante é um grafo simples e não dirigido que satisfaz a sequência de graus dada.</p>
+    
+    <div class="havel-hakimi-img">
+        <img src="../../../../assets/images/havel-hakimi-calculus.svg"/>
+    </div>
+    </div>
 </div>

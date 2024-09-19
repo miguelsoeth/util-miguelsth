@@ -29,7 +29,7 @@ export class DrawGraphSequenceComponent implements OnInit {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       if (!this.isGraphical(degreeSequence)) {
-        alert('The degree sequence is not graphical!');
+        alert('A sequência de graus não é gráfica!');
         return;
       }
 

@@ -1,7 +1,7 @@
 <div class="bkg">
     <div class="title-group">
         <h1>Utilidades</h1>
-        <h3 class="title">{{ title }}</h3>
+        <h3 class="title" *ngIf="!isRootRoute">{{ title }}</h3>
     </div>
     <div class="menu-group">
         <h3 class="menu-button" (click)="navigateToHome()">Menu</h3>
