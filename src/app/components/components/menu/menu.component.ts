@@ -21,6 +21,11 @@ export class MenuComponent implements OnInit {
       title: 'Desenhar grafo a partir de sequência de grau',
       description: 'Gera um grafo cujos vértices têm graus iguais aos da sequência fornecida utilizando o critério de Havel-Hakimi ',
       route: '/sequence-to-graph'
+    },
+    {
+      title: 'Network degree',
+      description: 'WIP',
+      route: '/network-degree'
     }
   ]
   

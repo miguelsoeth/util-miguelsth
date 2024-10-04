@@ -1,0 +1,40 @@
+.bkg {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: calc(100dvh - 170px);
+}
+
+.input-group {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.btn {
+    font-family: 'Short Stack', cursive;
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-left: 5px;
+    border-radius: 10px;
+    background-image: url(../../../../assets/images/paper-bkg.jpeg);
+    background-size: cover;
+}
+
+.btn:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.result-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.placeholder-image {
+    width: 50px; /* Set a size for the placeholder image */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Space between image and text */
+}

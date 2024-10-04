@@ -9,11 +9,13 @@
     border: 2px solid gray;
     padding: 10px;
     border-radius: 20px;
+    margin-bottom: 20px;
     align-items: center;
 }
 
 .group-text {
-    width: 90%;
+    width: 90%;    
+    gap: 30px; 
 }
 
 .group-button {
@@ -28,5 +30,6 @@
 }
 
 .group-text:hover h2 {
+    cursor: pointer;
     text-decoration: underline;
 }
