@@ -1,61 +1,48 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { HeaderService } from '../../../services/header.service';
-import { MovieService } from '../../../services/movie.service';
-import { GraphService } from '../../../services/graph.service';
-import { Movie } from '../../../interfaces/movie';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SearchFieldComponent } from '../../template/search-field/search-field.component';
+import { NativeSearchFieldComponent } from '../../template/native-search-field/native-search-field.component';
+import { NetworkDegreeService } from '../../../services/network-degree.service';
 
 @Component({
   selector: 'app-network-degree',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, SearchFieldComponent, NativeSearchFieldComponent],
   templateUrl: './network-degree.component.html',
   styleUrl: './network-degree.component.css'
 })
 export class NetworkDegreeComponent implements OnInit {
   header = inject(HeaderService);
-  movie = inject(MovieService);
-  graph = inject(GraphService);
+  network = inject(NetworkDegreeService);
 
-  uniqueActors: string[] = [];
-  movies: Movie[] = [];
-
-  originActor!: string;
-  destinyActor!: string;
+  originActor?: string;
+  destinyActor?: string;
   result?: string[];
 
   ngOnInit(): void {
     this.header.setTitle("Network degree");
-    this.getMovieInfos();
   }
 
-  getMovieInfos() {
-    this.movie.getMovies().subscribe(data => {
-      console.log("FILMES: ", data);
-      this.movies = data;
-      this.uniqueActors = this.movie.getUniqueActors(this.movies);
-
-      this.getGraph(this.movies);
-    });
+  selectOrigin(option: string) {
+    this.originActor = option;
+    console.log('Selected origin Actor:', this.originActor);
   }
 
-  getGraph(movies: Movie[]) {
-    movies.forEach(movie => {
-      this.graph.adicionarVertice(movie.title);
-
-      movie.cast.forEach(actor => {
-        this.graph.adicionarVertice(actor);
-        this.graph.adicionarAresta(movie.title, actor);
-      });
-    });
+  selectDestiny(option: string) {
+    this.destinyActor = option;
+    console.log('Selected destiny Actor:', this.destinyActor);
   }
 
   calculateNetworkDegree() {
-    this.result = this.graph.encontrarRelacionamentoMaisProximo(this.originActor, this.destinyActor);
-
-    console.log(this.result);
-
+    if (this.originActor != undefined && this.destinyActor != undefined) {
+      this.network.getNetwork(this.originActor, this.destinyActor).subscribe({
+        next: (result): void => {
+          this.result = result;
+        }
+      })
+    }    
   }
 
 }

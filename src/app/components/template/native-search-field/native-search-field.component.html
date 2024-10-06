@@ -1,0 +1,21 @@
+<form class="example-form">
+    <div class="autocomplete-container">
+      <input id="actor-input"
+             type="text"
+             autocomplete="off"
+             placeholder="Pick an actor"
+             aria-label="Actor Name"
+             [formControl]="myControl"
+             (focus)="showOptions = true"
+             (blur)="hideOptions()"/>
+      
+      <div class="autocomplete-options" *ngIf="showOptions">
+        <div *ngFor="let option of filteredOptions | async" 
+             (mousedown)="selectOption(option)" 
+             class="autocomplete-option">
+          {{ option }}
+        </div>
+      </div>
+    </div>
+  </form>
+  

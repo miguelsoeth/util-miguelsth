@@ -1,16 +1,16 @@
 <div class="bkg">
+
     <div class="input-group">
-        <select [(ngModel)]="originActor">
-            <option *ngFor="let actor of uniqueActors" [value]="actor">{{ actor }}</option>
-        </select>
-        <select [(ngModel)]="destinyActor">
-            <option *ngFor="let actor of uniqueActors" [value]="actor">{{ actor }}</option>
-        </select>
+        <app-native-search-field
+            (optionSelected)="selectOrigin($event)">
+        </app-native-search-field>
+        <app-native-search-field
+            (optionSelected)="selectDestiny($event)">
+        </app-native-search-field>
         <button class="btn" (click)="calculateNetworkDegree()">Encontrar relação mais próxima</button>
     </div>
 
     <div *ngIf="result && result.length > 0">
-        <p>RESULT:</p>
         <div *ngFor="let relationship of result" class="result-item">
             <img src="path/to/placeholder-image.jpg" alt="Placeholder" class="placeholder-image">
             <p>{{ relationship }}</p>
