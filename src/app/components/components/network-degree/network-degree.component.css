@@ -5,6 +5,10 @@
     min-height: calc(100dvh - 170px);
 }
 
+app-native-search-field {
+    margin: 0px 10px;
+}
+
 .input-group {
     margin-bottom: 10px;
     display: flex;
@@ -27,14 +31,36 @@
     text-decoration: underline;
 }
 
-.result-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+.results {
+    width: 80%;
+    margin: 40px 0px;
+    display: flex;             
+    justify-content: space-around;
 }
 
-.placeholder-image {
-    width: 50px; /* Set a size for the placeholder image */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 10px; /* Space between image and text */
+.result-item {
+    box-shadow: inset 0 0 0 2px black;
+    height: 80px;
+    border-radius: 10px;
+    color: white;
+    background-image: url(../../../../assets/images/chalkboard-bkg-footer.png);
+    margin-bottom: 35px;
+    padding: 10px;
+    width: 100%;
 }
+
+.result-item p {
+    margin: 0;
+    text-align: center;
+}
+
+.actors {
+    width: 25%;
+    /* Styles specific to the actors column */
+}
+
+.movies {
+    width: 25%;
+    margin: 60px 0px;
+}
+  

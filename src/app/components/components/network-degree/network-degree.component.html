@@ -7,13 +7,21 @@
         <app-native-search-field
             (optionSelected)="selectDestiny($event)">
         </app-native-search-field>
-        <button class="btn" (click)="calculateNetworkDegree()">Encontrar relação mais próxima</button>
+        <button class="btn" (click)="goToNetworkQuery()">Encontrar relação mais próxima</button>
     </div>
 
-    <div *ngIf="result && result.length > 0">
-        <div *ngFor="let relationship of result" class="result-item">
-            <img src="path/to/placeholder-image.jpg" alt="Placeholder" class="placeholder-image">
-            <p>{{ relationship }}</p>
+    <div class="results">
+        <div class="actors" *ngIf="actorsList && actorsList.length > 0">
+            <div *ngFor="let actor of actorsList" class="result-item">
+                <p>{{ actor }}</p>
+            </div>
+        </div>
+    
+        <div class="movies" *ngIf="moviesList && moviesList.length > 0">
+            <div *ngFor="let movie of moviesList" class="result-item">
+                <p>{{ movie }}</p>
+            </div>
         </div>
     </div>
+
 </div>
