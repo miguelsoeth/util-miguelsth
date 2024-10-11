@@ -13,8 +13,8 @@
 }
 
 canvas {
-    border: 1px solid black;
-    background-color: #f5f5f5;
+    border: 1px solid var(--shadow-color);
+    background-color: var(--canvas);
     width:80dvw;
     height: 90dvh;
 }
@@ -31,7 +31,6 @@ input[type="text"] {
     font-size: 1.3rem;
     margin-left: 5px;
     border-radius: 10px;
-    background-image: url(../../../../assets/paper-bkg.jpeg);
     background-size: cover;
 }
 
@@ -41,9 +40,9 @@ input[type="text"] {
 }
 
 .description {
-    background-color: white;
+    background-color: var(--background-color);
     border-radius: 20px;
-    border: 1px solid black;
+    border: 1px solid var(--shadow-color);
     width: 75dvw;
     padding: 20px;
     margin: 5dvh 0px;
@@ -76,8 +75,8 @@ input[type="text"] {
     }
 
     canvas {
-        border: 1px solid black;
-        background-color: #f5f5f5;
+        border: 1px solid var(--shadow-color);
+        background-color: var(--canvas);
         height: 40dvh;
     }
 

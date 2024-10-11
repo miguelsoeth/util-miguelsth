@@ -3,18 +3,16 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
     border-radius: 10px;
   }
 
   ::-webkit-scrollbar-thumb {
-      background-color: #888;
-      border-radius: 10px;
-      border: 3px solid #f1f1f1;
+    background-color: var(--scrollbar-thumb-color);
+    border-radius: 10px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
+    background-color: var(--scrollbar-hover-color);
   }
   
   .example-form {
@@ -44,12 +42,13 @@
     top: 100%;       
     left: 0;      
     width: 100%;  
-    background-color: white;
-    border: 1px solid #ccc;
+    background-color: var(--background-color);
+    border: 1px solid var(--autocomplete-border-color);
     border-radius: 10px;
     z-index: 1000;
     max-height: 200px;
-    overflow-y: auto;
+    overflow-y: auto;    
+    color: var(--text-color);
   }
   
   .autocomplete-option {
@@ -58,21 +57,18 @@
   }
   
   .autocomplete-option:hover {
-    background-color: #f0f0f0;
+    background-color: var(--autocomplete-hover-color);
   }
 
   #actor-input {
-    background: url(../../../../assets/chalkboard-bkg-footer.png);
-    color: white;
     font-family: 'Short Stack', cursive;
-    border: 2px solid black;
+    border: 2px solid var(--shadow-color);
     font-weight: 700;
     border-radius: 10px;
     opacity: 1;
   }
 
   #actor-input::placeholder {
-    color: white;
     font-weight: 400;
   }
   

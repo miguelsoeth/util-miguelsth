@@ -14,7 +14,7 @@ app-native-search-field {
     margin-bottom: 10px;
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 100%;    
 }
 
 .btn {
@@ -23,7 +23,6 @@ app-native-search-field {
     font-size: 1.3rem;
     margin-left: 5px;
     border-radius: 10px;
-    background-image: url(../../../../assets/paper-bkg.jpeg);
     background-size: cover;
 }
 
@@ -43,8 +42,7 @@ app-native-search-field {
     height: 360px;
     width: 200px;
     border-radius: 10px;
-    border: 2px solid black;
-    background-image: url(../../../../assets/not-found.png);
+    border: 2px solid var(--shadow-color);
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -64,7 +62,8 @@ app-native-search-field {
     font-weight: bold;
     padding: 10px 0px;
     border-radius: 0 0 10px 10px;
-    background-color: white;
+    background-color: var(--background-color);
+    color: var(--text-color);
     align-self: stretch;
     display: -webkit-box;
     -webkit-box-orient: vertical;
