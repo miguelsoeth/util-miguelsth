@@ -6,20 +6,17 @@
         </app-native-search-field>
         <app-native-search-field
             (optionSelected)="selectDestiny($event)">
-        </app-native-search-field>
-        <button class="btn" (click)="goToNetworkQuery()">Encontrar relação mais próxima</button>
+        </app-native-search-field>        
     </div>
+    
+    <button class="btn" (click)="goToNetworkQuery()">Encontrar relação mais próxima</button>
 
     <div class="results">
-        <div class="actors" *ngIf="actorsList && actorsList.length > 0">
-            <div *ngFor="let actor of actorsList" class="result-item">
-                <p>{{ actor }}</p>
-            </div>
-        </div>
-    
-        <div class="movies" *ngIf="moviesList && moviesList.length > 0">
-            <div *ngFor="let movie of moviesList" class="result-item">
-                <p>{{ movie }}</p>
+        <div class="results" *ngIf="result && result.length > 0">
+            <div *ngFor="let item of result" 
+                    class="result-item" 
+                    [ngStyle]="{'background-image': 'url(' + images[item] + ')'}">
+                <p>{{ item }}</p>
             </div>
         </div>
     </div>

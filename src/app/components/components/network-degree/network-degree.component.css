@@ -6,6 +6,7 @@
 }
 
 app-native-search-field {
+    width: 25%;
     margin: 0px 10px;
 }
 
@@ -32,35 +33,33 @@ app-native-search-field {
 }
 
 .results {
-    width: 80%;
-    margin: 40px 0px;
-    display: flex;             
+    margin: 10px 0px;
+    display: flex;
+    flex-direction: column;    
     justify-content: space-around;
 }
 
 .result-item {
     box-shadow: inset 0 0 0 2px black;
-    height: 80px;
+    height: 300px;
+    width: 200px;
     border-radius: 10px;
-    color: white;
-    background-image: url(../../../../assets/images/chalkboard-bkg-footer.png);
-    margin-bottom: 35px;
+    background-image: url(../../../../assets/images/paper-bkg.jpeg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 20px;
+    font-weight: bold;
     padding: 10px;
-    width: 100%;
 }
 
 .result-item p {
     margin: 0;
-    text-align: center;
-}
-
-.actors {
-    width: 25%;
-    /* Styles specific to the actors column */
-}
-
-.movies {
-    width: 25%;
-    margin: 60px 0px;
+    background-color: white;
+    align-self: flex-end;
+    white-space: normal;
+    word-wrap: break-word;
+    width: 100%; 
 }
   
