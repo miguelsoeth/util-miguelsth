@@ -2,7 +2,6 @@ import { AfterViewInit, Component, OnInit, inject } from '@angular/core';
 import { HeaderService } from '../../../services/header.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SearchFieldComponent } from '../../template/search-field/search-field.component';
 import { NativeSearchFieldComponent } from '../../template/native-search-field/native-search-field.component';
 import { NetworkDegreeService } from '../../../services/network-degree.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -11,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-network-degree',
   standalone: true,
-  imports: [CommonModule, FormsModule, SearchFieldComponent, NativeSearchFieldComponent],
+  imports: [CommonModule, FormsModule, NativeSearchFieldComponent],
   templateUrl: './network-degree.component.html',
   styleUrl: './network-degree.component.css'
 })
@@ -25,8 +24,8 @@ export class NetworkDegreeComponent implements OnInit {
 
   originActor: string = '';
   destinyActor: string = '';
-  result?: string[];
-  images: { [key: string]: string } = {};
+  result: { [key: string]: string } = {}; // Assuming this is your result object
+  resultKeys?: string[];
 
   ngOnInit(): void {
     this.header.setTitle("Network degree");
@@ -35,6 +34,8 @@ export class NetworkDegreeComponent implements OnInit {
       this.originActor = params['origin'] || '';
       this.destinyActor = params['destiny'] || '';
 
+      this.selectOrigin(this.originActor);
+      this.selectDestiny(this.destinyActor);
       this.calculateNetworkDegree();
     });
   }
@@ -44,27 +45,11 @@ export class NetworkDegreeComponent implements OnInit {
       this.network.getNetwork(this.originActor, this.destinyActor).subscribe({
         next: (result): void => {
           this.result = result;
-          this.loadImages(result);
+          this.resultKeys = Object.keys(this.result);
         },
         error: (err) => console.error('Error calculating network degree:', err)
       })
     }    
-  }
-
-  loadImages(result: string[]) {
-    result.forEach((item) => {
-      // Fetch image URL from your API for each item
-      this.http.get<string[]>(`http://localhost:3000/api/image/${item}`).subscribe({
-        next: (imageUrls) => {
-          if (imageUrls.length > 0) {
-            this.images[item] = `https://${imageUrls[0]}`;
-          } else {
-            console.warn(`No images found for item: ${item}`);
-          }
-        },
-        error: (err) => console.error('Error fetching image URLs:', err)
-      });
-    });
   }
 
   selectOrigin(option: string) {

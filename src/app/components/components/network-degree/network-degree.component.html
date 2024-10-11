@@ -2,9 +2,11 @@
 
     <div class="input-group">
         <app-native-search-field
+            [selectedOption]="originActor"
             (optionSelected)="selectOrigin($event)">
         </app-native-search-field>
         <app-native-search-field
+            [selectedOption]="destinyActor"
             (optionSelected)="selectDestiny($event)">
         </app-native-search-field>        
     </div>
@@ -12,10 +14,9 @@
     <button class="btn" (click)="goToNetworkQuery()">Encontrar relação mais próxima</button>
 
     <div class="results">
-        <div class="results" *ngIf="result && result.length > 0">
-            <div *ngFor="let item of result" 
-                    class="result-item" 
-                    [ngStyle]="{'background-image': 'url(' + images[item] + ')'}">
+        <div class="results" *ngIf="result">
+            <div *ngFor="let item of resultKeys" class="result-item">
+                <img [src]="'https://' + result[item]" alt="{{ item }}"/>
                 <p>{{ item }}</p>
             </div>
         </div>

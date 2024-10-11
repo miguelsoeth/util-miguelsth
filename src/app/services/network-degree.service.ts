@@ -23,11 +23,11 @@ export class NetworkDegreeService {
     return this.http.get<ActorResponse>(`${this.baseUrl}/actors`, { params });
   }
 
-  getNetwork(origin: string, destiny: string): Observable<string[]> {
+  getNetwork(origin: string, destiny: string): Observable<{ [key: string]: string }> {
     const params = new HttpParams()
       .set('origin', origin)
       .set('destiny', destiny);
-
-    return this.http.get<any>(`${this.baseUrl}/network`, { params });
-  }
+  
+    return this.http.get<{ [key: string]: string }>(`${this.baseUrl}/network`, { params });
+  }  
 }

@@ -23,7 +23,7 @@ app-native-search-field {
     font-size: 1.3rem;
     margin-left: 5px;
     border-radius: 10px;
-    background-image: url(../../../../assets/images/paper-bkg.jpeg);
+    background-image: url(../../../../assets/paper-bkg.jpeg);
     background-size: cover;
 }
 
@@ -39,27 +39,46 @@ app-native-search-field {
     justify-content: space-around;
 }
 
-.result-item {
-    box-shadow: inset 0 0 0 2px black;
-    height: 300px;
+.result-item {    
+    height: 360px;
     width: 200px;
     border-radius: 10px;
-    background-image: url(../../../../assets/images/paper-bkg.jpeg);
+    border: 2px solid black;
+    background-image: url(../../../../assets/not-found.png);
     background-size: cover;
     display: flex;
+    flex-direction: column;
     align-items: center;
     overflow: hidden;
     margin-bottom: 20px;
-    font-weight: bold;
-    padding: 10px;
+}
+
+.result-item img {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
 }
 
 .result-item p {
-    margin: 0;
+    margin: 0;        
+    font-weight: bold;
+    padding: 10px 0px;
+    border-radius: 0 0 10px 10px;
     background-color: white;
-    align-self: flex-end;
-    white-space: normal;
+    align-self: stretch;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    display: box;
+    box-orient: vertical;
+    line-clamp: 2;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
     word-wrap: break-word;
     width: 100%; 
+    height: 60px;
+    text-align: center;
 }
   

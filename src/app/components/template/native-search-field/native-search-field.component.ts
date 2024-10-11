@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { map, Observable, startWith, switchMap } from 'rxjs';
 import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
@@ -24,6 +24,12 @@ export class NativeSearchFieldComponent implements OnInit {
   @Output() optionSelected = new EventEmitter<string>();
   showOptions = false;
   network = inject(NetworkDegreeService);
+
+  @Input() set selectedOption(value: string | null) {
+    if (value) {
+      this.myControl.setValue(value);
+    }
+  }
 
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges.pipe(

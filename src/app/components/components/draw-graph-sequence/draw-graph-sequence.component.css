@@ -31,7 +31,7 @@ input[type="text"] {
     font-size: 1.3rem;
     margin-left: 5px;
     border-radius: 10px;
-    background-image: url(../../../../assets/images/paper-bkg.jpeg);
+    background-image: url(../../../../assets/paper-bkg.jpeg);
     background-size: cover;
 }
 
