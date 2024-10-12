@@ -4,6 +4,7 @@
         <h3 class="title" *ngIf="!isRootRoute">{{ title }}</h3>
     </div>
     <div class="menu-group">
+        <button (click)="toggleTheme()">Toggle Theme</button>
         <h3 class="menu-button" (click)="navigateToHome()">Menu</h3>
     </div>    
 </div>

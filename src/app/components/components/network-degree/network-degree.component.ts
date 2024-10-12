@@ -27,6 +27,8 @@ export class NetworkDegreeComponent implements OnInit {
   result: { [key: string]: string } = {}; // Assuming this is your result object
   resultKeys?: string[];
 
+  isLoading: boolean = false;
+
   ngOnInit(): void {
     this.header.setTitle("Network degree");
 
@@ -42,10 +44,12 @@ export class NetworkDegreeComponent implements OnInit {
 
   calculateNetworkDegree() {
     if (this.originActor && this.destinyActor) {
+      this.isLoading = true;
       this.network.getNetwork(this.originActor, this.destinyActor).subscribe({
         next: (result): void => {
           this.result = result;
           this.resultKeys = Object.keys(this.result);
+          this.isLoading = false;
         },
         error: (err) => console.error('Error calculating network degree:', err)
       })

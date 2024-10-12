@@ -21,6 +21,22 @@
     color: var(--text-color);
 }
 
+.menu-group {
+    display: flex;
+    gap: 10px;
+}
+
+.menu-group button {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 16px;
+    font-family: 'Short Stack', cursive;
+    cursor: pointer;
+    box-shadow: none;
+    border: 0;
+    margin-bottom: 3px;
+}
+
 .menu-button {
     display: flex;
     align-items: center;
@@ -46,7 +62,8 @@
 
     .title-group {
         flex-direction: column;
-        align-items: center;
+        align-items: center;        
+        text-align: center;
     }
 
     .title-group h1 {

@@ -16,10 +16,11 @@
 .group-text {
     width: 90%;    
     gap: 30px; 
+    color: var(--text-color);
 }
 
 .group-button {
-    font-family: 'Short Stack', cursive;
+    font-family: 'Short Stack', cursive;    
     font-weight: 700;
     font-size: 1.3rem;
     width: 10%;

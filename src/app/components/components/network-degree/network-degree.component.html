@@ -13,11 +13,18 @@
     
     <button class="btn" (click)="goToNetworkQuery()">Encontrar relação mais próxima</button>
 
+    <div *ngIf="isLoading" class="loading-indicator">
+        Carregando...
+    </div>
+
     <div class="results">
         <div class="results" *ngIf="result">
-            <div *ngFor="let item of resultKeys" class="result-item">
-                <img [src]="'https://' + result[item]" alt="{{ item }}"/>
-                <p>{{ item }}</p>
+            <div *ngFor="let item of resultKeys; let i = index" class="result-container">
+                <div class="result-item">
+                    <img [src]="'https://' + result[item]" alt="{{ item }}"/>
+                    <p>{{ item }}</p>
+                </div>
+                <div *ngIf="i !== resultKeys!.length - 1" class="result-line"></div>
             </div>
         </div>
     </div>

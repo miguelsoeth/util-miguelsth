@@ -48,7 +48,13 @@ app-native-search-field {
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    margin-bottom: 20px;
+}
+
+.result-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .result-item img {
@@ -58,26 +64,45 @@ app-native-search-field {
 }
 
 .result-item p {
-    margin: 0;        
-    font-weight: bold;
-    padding: 10px 0px;
-    border-radius: 0 0 10px 10px;
-    background-color: var(--background-color);
+    margin: 0;
+font-weight: bold;
+padding: 10px 0px;
+border-radius: 0 0 10px 10px;
+background-color: var(--background-color);
+color: var(--text-color);
+display: grid;
+place-items: center;
+overflow: hidden;
+text-overflow: ellipsis;
+word-wrap: break-word;
+width: 100%;
+height: 60px;
+text-align: center;
+}
+
+.loading-indicator {
     color: var(--text-color);
-    align-self: stretch;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    margin: 50px;
+}
 
-    display: box;
-    box-orient: vertical;
-    line-clamp: 2;
+.result-line {
+    width: 3px;
+    background-color: var(--text-color);
+    height: 50px;
+}
 
-    overflow: hidden;
-    text-overflow: ellipsis;
-    word-wrap: break-word;
-    width: 100%; 
-    height: 60px;
-    text-align: center;
+@media (max-width: 768px) {
+    .input-group {
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;  
+    }
+
+    app-native-search-field {
+        width: 90%;
+        margin: 10px;
+    }  
 }
   

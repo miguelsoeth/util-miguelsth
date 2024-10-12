@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { HeaderService } from './../../../services/header.service';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,7 +10,16 @@ import { CommonModule } from '@angular/common';
   templateUrl: './topbar.component.html',
   styleUrl: './topbar.component.css'
 })
-export class TopbarComponent {
+export class TopbarComponent implements OnInit {
+
+  ngOnInit(): void {
+    if (localStorage.getItem("currentTheme") == "dark-theme" ) {
+      this.toggleTheme();
+    }
+  }
+
+  isDarkTheme = false;
+
 
   header = inject(HeaderService);
   router = inject(Router);
@@ -25,6 +34,13 @@ export class TopbarComponent {
 
   navigateToHome(): void {
     this.router.navigate(['/']);
+  }
+
+  toggleTheme() {
+    this.isDarkTheme = !this.isDarkTheme;
+    const theme = this.isDarkTheme ? 'dark-theme' : ':root';
+    localStorage.setItem("currentTheme", theme);
+    document.body.className = theme;
   }
 
 }
