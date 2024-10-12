@@ -44,6 +44,7 @@ export class NetworkDegreeComponent implements OnInit {
 
   calculateNetworkDegree() {
     if (this.originActor && this.destinyActor) {
+      this.resultKeys = [];
       this.isLoading = true;
       this.network.getNetwork(this.originActor, this.destinyActor).subscribe({
         next: (result): void => {
