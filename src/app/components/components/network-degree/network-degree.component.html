@@ -17,11 +17,15 @@
         Carregando...
     </div>
 
+    <div *ngIf="isError" class="loading-indicator">
+        {{errorMessage}}
+    </div>
+    
     <div class="results">
         <div class="results" *ngIf="result">
             <div *ngFor="let item of resultKeys; let i = index" class="result-container">
                 <div class="result-item">
-                    <img [src]="'https://' + result[item]" alt="{{ item }}"/>
+                    <img [src]="result[item]" alt="{{ item }}"/>
                     <p>{{ item }}</p>
                 </div>
                 <div *ngIf="i !== resultKeys!.length - 1" class="result-line"></div>

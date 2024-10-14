@@ -28,6 +28,8 @@ export class NetworkDegreeComponent implements OnInit {
   resultKeys?: string[];
 
   isLoading: boolean = false;
+  isError: boolean = false;
+  errorMessage: string = '';
 
   ngOnInit(): void {
     this.header.setTitle("Network degree");
@@ -46,14 +48,29 @@ export class NetworkDegreeComponent implements OnInit {
     if (this.originActor && this.destinyActor) {
       this.resultKeys = [];
       this.isLoading = true;
+      this.isError = false;
       this.network.getNetwork(this.originActor, this.destinyActor).subscribe({
         next: (result): void => {
           this.result = result;
           this.resultKeys = Object.keys(this.result);
           this.isLoading = false;
         },
-        error: (err) => console.error('Error calculating network degree:', err)
-      })
+        error: (err): void => {
+          if (err.status === 404) {
+            this.isLoading = false;
+            this.isError = true;
+            this.errorMessage = 'Conexão entre atores não encontrada.';
+          } else if (err.status === 500) {
+            this.isLoading = false;
+            this.isError = true;
+            this.errorMessage = 'Erro ao encontrar conexão.';
+          } else {
+            this.isError = true;
+            this.isLoading = false;
+            this.errorMessage = 'Erro desconhecido.';
+          }
+        }
+      });
     }    
   }
 
