@@ -1,8 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Short+Stack&display=swap');
 
 body {
-    background-image: url("./assets/images/paper-bkg.jpeg");
     margin: 0;
     padding: 0;
     font-family: 'Short Stack', cursive;
+    background-color: var(--background-color);
+}
+
+:root {
+    --text-color: black;
+    --shadow-color: black;
+    --background-color: white;    
+    --canvas: #f5f5f5;
+    --autocomplete-hover-color: #f0f0f0;
+    --autocomplete-border-color: #ccc;
+    --scrollbar-thumb-color: #888;    
+    --scrollbar-thumb-hover-color: #555;
+}
+
+.dark-theme {
+    --text-color: white;
+    --shadow-color: white;
+    --background-color: #2c2c2c;    
+    --canvas: #f5f5f5;
+    --autocomplete-hover-color: #555;
+    --autocomplete-border-color: #f0f0f0;
+    --scrollbar-thumb-color: #f5f5f5;    
+    --scrollbar-thumb-hover-color: #f0f0f0;
 }

@@ -1,0 +1,36 @@
+<div class="bkg">
+
+    <div class="input-group">
+        <app-native-search-field
+            [selectedOption]="originActor"
+            (optionSelected)="selectOrigin($event)">
+        </app-native-search-field>
+        <app-native-search-field
+            [selectedOption]="destinyActor"
+            (optionSelected)="selectDestiny($event)">
+        </app-native-search-field>        
+    </div>
+    
+    <button class="btn" (click)="goToNetworkQuery()">Encontrar relação mais próxima</button>
+
+    <div *ngIf="isLoading" class="loading-indicator">
+        Carregando...
+    </div>
+
+    <div *ngIf="isError" class="loading-indicator">
+        {{errorMessage}}
+    </div>
+    
+    <div class="results">
+        <div class="results" *ngIf="result">
+            <div *ngFor="let item of resultKeys; let i = index" class="result-container">
+                <div class="result-item">
+                    <img [src]="result[item]" alt="{{ item }}"/>
+                    <p>{{ item }}</p>
+                </div>
+                <div *ngIf="i !== resultKeys!.length - 1" class="result-line"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
