@@ -23,8 +23,8 @@ export class MenuComponent implements OnInit {
       route: '/sequence-to-graph'
     },
     {
-      title: 'Network degree',
-      description: 'WIP',
+      title: '8 Graus de Network',
+      description: 'Encontra o relacionamento mais próximo entre 2 atores e todos os relacionamentos mais próximos que tenham Comprimento Máximo de 8 Arestas entre os Atores de Origem e Destino.',
       route: '/network-degree'
     }
   ]

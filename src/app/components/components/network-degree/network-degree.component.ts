@@ -32,7 +32,7 @@ export class NetworkDegreeComponent implements OnInit {
   errorMessage: string = '';
 
   ngOnInit(): void {
-    this.header.setTitle("Network degree");
+    this.header.setTitle("8 Graus de Network");
 
     this.route.queryParams.subscribe(params => {
       this.originActor = params['origin'] || '';
