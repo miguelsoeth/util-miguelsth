@@ -8,7 +8,7 @@ import { ActorResponse } from '../interfaces/actor-response';
 })
 export class NetworkDegreeService {
 
-  private readonly baseUrl: string = "http://localhost:3000/api/network-degree";
+  private readonly baseUrl: string = "http://miguelsth-host.ddns.net:3000/api/network-degree";
 
   constructor(private http: HttpClient) { }
 

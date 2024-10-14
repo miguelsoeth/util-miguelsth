@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ImageService {
 
-  private readonly baseUrl: string = "http://localhost:3000/api/image";
+  private readonly baseUrl: string = "http://miguelsth-host.ddns.net:3000/api/image";
 
   constructor(private http: HttpClient) { }
 
