@@ -20,8 +20,7 @@ app-native-search-field {
 .btn {
     font-family: 'Short Stack', cursive;
     font-weight: 700;
-    font-size: 1.3rem;
-    margin-left: 5px;
+    font-size: 1.3rem;    
     border-radius: 10px;
     background-size: cover;
 }
@@ -102,7 +101,7 @@ text-align: center;
 
     app-native-search-field {
         width: 90%;
-        margin: 10px;
+        margin: 10px auto;
     }  
 }
   
