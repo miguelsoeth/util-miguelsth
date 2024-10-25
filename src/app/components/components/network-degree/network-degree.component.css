@@ -17,6 +17,18 @@ app-native-search-field {
     width: 100%;    
 }
 
+.resultsAll h3 {
+    margin: auto;
+    width: fit-content;
+    text-align: center;
+    border-bottom: 2px solid black;
+}
+
+.button-holder {
+    display: flex;
+    gap: 10px;
+}
+
 .btn {
     font-family: 'Short Stack', cursive;
     font-weight: 700;
@@ -88,6 +100,36 @@ text-align: center;
     width: 3px;
     background-color: var(--text-color);
     height: 50px;
+}
+
+.resultsAll h3 {
+    margin: auto;
+    width: fit-content;
+    text-align: center;
+    border-bottom: 2px solid black;
+}
+
+table {
+    width: 90%;
+    margin: auto;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background-color: #f2f2f2;
+    border: 2px solid #ccc;
+    padding: 12px;
+    text-align: left;
+}
+
+td {
+    border: 1px solid #ccc; 
+    padding: 10px;
+}
+
+tbody tr:hover {
+    background-color: #e9e9e9;
 }
 
 @media (max-width: 768px) {

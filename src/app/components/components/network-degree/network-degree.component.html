@@ -10,8 +10,11 @@
             (optionSelected)="selectDestiny($event)">
         </app-native-search-field>        
     </div>
+    <div class="button-holder">
+        <button class="btn" (click)="goToNetworkQuery()">Pesquisa BFS</button>
+        <button class="btn" (click)="goToAllNetworkQuery()">Pesquisa BFS até 8</button>
+    </div>
     
-    <button class="btn" (click)="goToNetworkQuery()">Encontrar relação mais próxima</button>
 
     <div *ngIf="isLoading" class="loading-indicator">
         Carregando...
@@ -31,6 +34,27 @@
                 <div *ngIf="i !== resultKeys!.length - 1" class="result-line"></div>
             </div>
         </div>
+
+        <div class="resultsAll" *ngIf="resultAll">
+            <h3>Total de {{ resultAll.total }} caminhos com até 8 de distância entre {{ originActor }} e {{ destinyActor }}</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Posição</th>
+                        <th>Resultado</th>
+                        <th>Distância</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let key of getKeys(resultAll.results); let i = index" (click)="getTableRow(key)">
+                        <td>{{ i + 1 }}</td> <!-- Position starts from 1 -->
+                        <td>{{ key }}</td>
+                        <td>{{ resultAll.results[key] }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+          
     </div>
 
 </div>
