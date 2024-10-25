@@ -180,23 +180,25 @@ export class NetworkDegreeComponent implements OnInit {
     }
   } 
 
-  goToAllNetworkQuery() {
-    if (this.originActor && this.destinyActor) {
-      const queryParams = {
-        type: "all",
-        origin: this.originActor,
-        destiny: this.destinyActor
-      };
-      this.router.navigate(['/network-degree'], { queryParams });      
+    goToAllNetworkQuery() {
+      if (this.originActor && this.destinyActor) {
+        const queryParams = {
+          type: "all",
+          origin: this.originActor,
+          destiny: this.destinyActor
+        };
+        this.router.navigate(['/network-degree'], { queryParams }).then(() => {
+          window.location.reload();
+        });      
+      }
     }
-  }
 
   getKeys(results: Record<string, number>): string[] {
     return Object.keys(results);
   }
 
   getTableRow(key: string): void {
-    const result: string[] = key.split('->').map(item => item.trim());
+    const result: string[] = key.split(' -> ').map(item => item.trim());
     this.dialogData = result;
     this.showDialog = true;
   }
