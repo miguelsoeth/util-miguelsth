@@ -1,0 +1,23 @@
+<div class="dialog-overlay">
+    <div class="dialog-content">
+        <div *ngIf="isLoading" class="loading-indicator">
+            Carregando...
+        </div>
+        
+        <div *ngIf="isError" class="loading-indicator">
+            {{errorMessage}}
+        </div>
+
+        <div class="results" *ngIf="result">
+            <div *ngFor="let item of resultKeys; let i = index" class="result-container">
+                <div class="result-item">
+                    <img [src]="result[item]" alt="{{ item }}"/>
+                    <p>{{ item }}</p>
+                </div>
+                <div *ngIf="i !== resultKeys!.length - 1" class="result-line"></div>
+            </div>
+        </div>
+        <button class="btn" (click)="closeDialog()">Fechar</button>
+    </div>
+  </div>
+  

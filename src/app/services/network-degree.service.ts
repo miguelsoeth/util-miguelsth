@@ -43,4 +43,8 @@ export class NetworkDegreeService {
   getImage(text: string): Observable<string[]> {
     return this.http.get<string[]>(`${this.baseUrl}/${text}`);
   }
+
+  putImages(relationship: string[]): Observable<{ [key: string]: string }> {
+    return this.http.post<{ [key: string]: string }>(`${this.baseUrl}/put-images`, relationship);
+  }
 }

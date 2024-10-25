@@ -17,12 +17,6 @@ app-native-search-field {
     width: 100%;    
 }
 
-.resultsAll h3 {
-    margin: auto;
-    width: fit-content;
-    text-align: center;
-    border-bottom: 2px solid black;
-}
 
 .button-holder {
     display: flex;
@@ -76,19 +70,19 @@ app-native-search-field {
 
 .result-item p {
     margin: 0;
-font-weight: bold;
-padding: 10px 0px;
-border-radius: 0 0 10px 10px;
-background-color: var(--background-color);
-color: var(--text-color);
-display: grid;
-place-items: center;
-overflow: hidden;
-text-overflow: ellipsis;
-word-wrap: break-word;
-width: 100%;
-height: 60px;
-text-align: center;
+    font-weight: bold;
+    padding: 10px 0px;
+    border-radius: 0 0 10px 10px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    width: 100%;
+    height: 60px;
+    text-align: center;
 }
 
 .loading-indicator {
@@ -106,7 +100,8 @@ text-align: center;
     margin: auto;
     width: fit-content;
     text-align: center;
-    border-bottom: 2px solid black;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--text-color);
 }
 
 table {
@@ -117,19 +112,25 @@ table {
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: var(--autocomplete-hover-color);
+    color: var(--text-color);
     border: 2px solid #ccc;
     padding: 12px;
     text-align: left;
 }
 
 td {
-    border: 1px solid #ccc; 
+    border: 1px solid var(--shadow-color); 
     padding: 10px;
+    color: var(--text-color);
+}
+
+tbody {
+    background-color: var(--background-color);
 }
 
 tbody tr:hover {
-    background-color: #e9e9e9;
+    background-color: var(--autocomplete-hover-color);
 }
 
 @media (max-width: 768px) {

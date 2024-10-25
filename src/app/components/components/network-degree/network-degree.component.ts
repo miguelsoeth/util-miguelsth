@@ -7,11 +7,12 @@ import { NetworkDegreeService } from '../../../services/network-degree.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AllNetworkResult } from '../../../interfaces/all-network-result';
+import { RowResultDialogComponent } from '../../template/row-result-dialog/row-result-dialog.component';
 
 @Component({
   selector: 'app-network-degree',
   standalone: true,
-  imports: [CommonModule, FormsModule, NativeSearchFieldComponent],
+  imports: [CommonModule, FormsModule, NativeSearchFieldComponent, RowResultDialogComponent],
   templateUrl: './network-degree.component.html',
   styleUrl: './network-degree.component.css'
 })
@@ -33,6 +34,10 @@ export class NetworkDegreeComponent implements OnInit {
   isLoading: boolean = false;
   isError: boolean = false;
   errorMessage: string = '';
+
+  showDialog: boolean = false;
+  dialogData?: string[]; 
+
 
   ngOnInit(): void {
     this.header.setTitle("8 Graus de Network");
@@ -191,7 +196,13 @@ export class NetworkDegreeComponent implements OnInit {
   }
 
   getTableRow(key: string): void {
-    console.log(key);
+    const result: string[] = key.split('->').map(item => item.trim());
+    this.dialogData = result;
+    this.showDialog = true;
+  }
+
+  closeDialog(): void {
+    this.showDialog = false;
   }
   
 }

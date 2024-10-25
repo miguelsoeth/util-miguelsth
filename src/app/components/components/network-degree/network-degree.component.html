@@ -23,6 +23,10 @@
     <div *ngIf="isError" class="loading-indicator">
         {{errorMessage}}
     </div>
+
+    <div *ngIf="showDialog">
+        <app-row-result-dialog [data]="dialogData" (close)="closeDialog()"></app-row-result-dialog>
+      </div>
     
     <div class="results">
         <div class="results" *ngIf="result">
